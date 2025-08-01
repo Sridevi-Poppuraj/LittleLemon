@@ -1,5 +1,5 @@
 """
-URL configuration for littlelemonproj project.
+URL configuration for demoproject project.
 
 The `urlpatterns` list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/4.2/topics/http/urls/
@@ -15,17 +15,16 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path, include
+from django.urls import path
 from rest_framework.routers import DefaultRouter
+from .views import UserViewSet
 
+router = DefaultRouter()
+router.register(r'users', UserViewSet)
+urlpatterns = router.urls
 
-
-urlpatterns = [
-    path('admin/', admin.site.urls),
-    path('restaurant/', include('restaurant.urls')),
-    path('api-auth/', include('rest_framework.urls', namespace='rest_framework')),
-    path('restaurant/menu/', include('restaurant.urls')),
-    path('restuarant/booking/', include('restaurant.urls')),
-   
-
-]
+# urlpatterns = [
+#     path('admin/', admin.site.urls),
+#     path('', include(router.urls)),
+#     path('api-auth/'. include('rest_framework.urls', namespace='rest_framework'))
+# ]

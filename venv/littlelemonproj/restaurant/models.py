@@ -1,5 +1,6 @@
 from django.db import models
 
+
 class Booking(models.Model):
     id = models.IntegerField(primary_key=True)  # INT(11)
     name = models.CharField(max_length=255)
