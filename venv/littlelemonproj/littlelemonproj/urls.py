@@ -17,6 +17,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from rest_framework.routers import DefaultRouter
+from rest_framework.authtoken.views import obtain_auth_token
 
 
 
@@ -26,6 +27,5 @@ urlpatterns = [
     path('api-auth/', include('rest_framework.urls', namespace='rest_framework')),
     path('restaurant/menu/', include('restaurant.urls')),
     path('restuarant/booking/', include('restaurant.urls')),
-   
-
+    path('api-token-auth/', obtain_auth_token),
 ]
